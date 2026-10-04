@@ -5,75 +5,742 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#f8e8e7">
 <title>Untuk Nafisah ♡</title>
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&family=Sacramento&display=swap');
-:root{--cream:#fffaf4;--pink:#f6dfe2;--rose:#bd6878;--ink:#49383a;--muted:#8e7778;--line:#ead7d3}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.25;background-image:radial-gradient(#d5a8a8 .7px,transparent .7px);background-size:17px 17px;z-index:-1}
-button{font:inherit;cursor:pointer}.cover{min-height:100svh;display:grid;place-items:center;padding:24px;background:radial-gradient(ellipse at 50% 30%,#fff 0,#f9e9e8 48%,#f2d8d9 100%);position:relative;overflow:hidden}
-.cover:before,.cover:after{content:"♡";position:absolute;color:#d99ba6;font-size:clamp(90px,20vw,220px);opacity:.23;transform:rotate(-17deg)}.cover:before{left:-35px;top:7%}.cover:after{right:-30px;bottom:4%;transform:rotate(18deg)}
-.envelope-wrap{width:min(100%,430px);text-align:center;position:relative;z-index:1}.eyebrow{letter-spacing:.24em;text-transform:uppercase;font-size:10px;color:var(--muted);font-weight:600}.envelope{width:220px;height:150px;margin:30px auto 25px;position:relative;background:#e8bfc4;border-radius:8px;box-shadow:0 18px 35px #a66e7626;display:grid;place-items:center;transition:.5s}.envelope:before{content:"";position:absolute;inset:0;background:#f1d0d2;clip-path:polygon(0 0,50% 58%,100% 0);border-radius:8px 8px 0 0;transform-origin:top;transition:.5s}.envelope:after{content:"";position:absolute;inset:0;background:#e6b9bf;clip-path:polygon(0 100%,50% 47%,100% 100%);border-radius:0 0 8px 8px}.seal{position:relative;z-index:2;background:#fff5f2;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:var(--rose);font-size:21px;box-shadow:0 3px 10px #9d687522}.cover h1{font:500 clamp(40px,10vw,60px) 'Sacramento',cursive;margin:0 0 8px;color:#a85d6d}.cover p{color:#856e70;line-height:1.7;margin:8px auto 22px;max-width:310px;font-size:14px}.open-btn{border:0;background:#a95f70;color:white;border-radius:99px;padding:13px 24px;box-shadow:0 8px 18px #a95f7030;transition:.2s}.open-btn:hover{transform:translateY(-2px);background:#914b5d}.hint{font-size:11px;color:#a78b8d;margin-top:14px}
-main{display:none;max-width:780px;margin:auto;padding:24px 18px 70px}.topline{text-align:center;padding:25px 0 16px;color:var(--muted);font-size:11px;letter-spacing:.22em;text-transform:uppercase}.hero{text-align:center;padding:20px 0 32px}.hero .script{font:48px 'Sacramento',cursive;color:var(--rose);margin:0}.hero h2{font:600 clamp(34px,8vw,58px) 'Playfair Display',serif;line-height:1.1;margin:2px 0 10px}.hero p{font-size:13px;color:var(--muted);letter-spacing:.05em}.divider{display:flex;align-items:center;gap:12px;max-width:240px;margin:23px auto;color:#c58b94}.divider:before,.divider:after{content:"";height:1px;background:var(--line);flex:1}
-.photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:650px;margin:0 auto 42px}.polaroid{background:#fff;padding:9px 9px 14px;box-shadow:0 8px 25px #4e31300d;transform:rotate(-1.5deg);border:1px solid #f0e8e3}.polaroid:nth-child(2){transform:rotate(1.8deg);margin-top:22px}.polaroid:nth-child(3){transform:rotate(1.2deg);margin-top:-10px}.polaroid:nth-child(4){transform:rotate(-1.4deg);margin-top:12px}.polaroid img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:#f1e5e1}.polaroid p{text-align:center;font:18px 'Sacramento',cursive;color:#88656b;margin:9px 0 0}
-.letter{background:#fffdf9;border:1px solid #f0e2dd;border-radius:4px;padding:clamp(22px,6vw,45px);box-shadow:0 14px 35px #68454a0b;position:relative;margin:0 auto 30px;max-width:650px}.letter:before{content:"";position:absolute;top:12px;left:12px;width:35px;height:35px;border-top:1px solid #dcb9bb;border-left:1px solid #dcb9bb}.letter:after{content:"♡";position:absolute;right:20px;top:14px;color:#d5a0a6;font-size:24px}.letter h3{text-align:center;font:500 34px 'Sacramento',cursive;color:var(--rose);margin:0 0 18px}.letter p{font-size:14px;line-height:1.95;color:#665456;margin:0 0 14px}.signature{text-align:right;font:28px 'Sacramento',cursive;color:var(--rose);margin-top:20px}.surprise{text-align:center;padding:25px 10px 40px}.surprise button{border:1px solid #d8aab0;color:#a45e6d;background:#fff7f5;padding:12px 20px;border-radius:99px}.surprise-message{display:none;margin:20px auto 0;max-width:400px;font:27px 'Sacramento',cursive;color:#a45e6d;line-height:1.5}.footer{text-align:center;color:#ad9696;font-size:11px;letter-spacing:.08em}.heart{position:fixed;bottom:-30px;color:#ce8492;animation:float 6s linear forwards;pointer-events:none;z-index:5}@keyframes float{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}.fade{animation:fade .8s ease both}@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-@media(max-width:430px){.photo-grid{gap:10px}.polaroid{padding:7px 7px 11px}.polaroid p{font-size:16px}.letter p{font-size:13px}}
+
+:root{
+    --cream:#fffaf4;
+    --pink:#f6dfe2;
+    --rose:#bd6878;
+    --ink:#49383a;
+    --muted:#8e7778;
+    --line:#ead7d3;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'DM Sans',sans-serif;
+    overflow-x:hidden;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.25;
+    background-image:radial-gradient(#d5a8a8 .7px,transparent .7px);
+    background-size:17px 17px;
+    z-index:-1;
+}
+
+button{
+    font:inherit;
+    cursor:pointer;
+}
+
+/* =========================
+   HALAMAN PEMBUKA
+========================= */
+
+.cover{
+    min-height:100svh;
+    display:grid;
+    place-items:center;
+    padding:24px;
+    background:radial-gradient(
+        ellipse at 50% 30%,
+        #fff 0,
+        #f9e9e8 48%,
+        #f2d8d9 100%
+    );
+    position:relative;
+    overflow:hidden;
+}
+
+.cover:before,
+.cover:after{
+    content:"♡";
+    position:absolute;
+    color:#d99ba6;
+    font-size:clamp(90px,20vw,220px);
+    opacity:.23;
+    transform:rotate(-17deg);
+}
+
+.cover:before{
+    left:-35px;
+    top:7%;
+}
+
+.cover:after{
+    right:-30px;
+    bottom:4%;
+    transform:rotate(18deg);
+}
+
+.envelope-wrap{
+    width:min(100%,430px);
+    text-align:center;
+    position:relative;
+    z-index:1;
+}
+
+.eyebrow{
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    font-size:10px;
+    color:var(--muted);
+    font-weight:600;
+}
+
+.envelope{
+    width:220px;
+    height:150px;
+    margin:30px auto 25px;
+    position:relative;
+    background:#e8bfc4;
+    border-radius:8px;
+    box-shadow:0 18px 35px #a66e7626;
+    display:grid;
+    place-items:center;
+    transition:.5s;
+}
+
+.envelope:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:#f1d0d2;
+    clip-path:polygon(0 0,50% 58%,100% 0);
+    border-radius:8px 8px 0 0;
+    transform-origin:top;
+    transition:.5s;
+}
+
+.envelope:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:#e6b9bf;
+    clip-path:polygon(0 100%,50% 47%,100% 100%);
+    border-radius:0 0 8px 8px;
+}
+
+.seal{
+    position:relative;
+    z-index:2;
+    background:#fff5f2;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    color:var(--rose);
+    font-size:21px;
+    box-shadow:0 3px 10px #9d687522;
+}
+
+.cover h1{
+    font:500 clamp(40px,10vw,60px) 'Sacramento',cursive;
+    margin:0 0 8px;
+    color:#a85d6d;
+}
+
+.cover p{
+    color:#856e70;
+    line-height:1.7;
+    margin:8px auto 22px;
+    max-width:310px;
+    font-size:14px;
+}
+
+.open-btn{
+    border:0;
+    background:#a95f70;
+    color:white;
+    border-radius:99px;
+    padding:13px 24px;
+    box-shadow:0 8px 18px #a95f7030;
+    transition:.2s;
+}
+
+.open-btn:hover{
+    transform:translateY(-2px);
+    background:#914b5d;
+}
+
+.hint{
+    font-size:11px;
+    color:#a78b8d;
+    margin-top:14px;
+}
+
+/* =========================
+   ISI WEBSITE
+========================= */
+
+main{
+    display:none;
+    max-width:780px;
+    margin:auto;
+    padding:24px 18px 70px;
+}
+
+.topline{
+    text-align:center;
+    padding:25px 0 16px;
+    color:var(--muted);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+}
+
+.hero{
+    text-align:center;
+    padding:20px 0 32px;
+}
+
+.hero .script{
+    font:48px 'Sacramento',cursive;
+    color:var(--rose);
+    margin:0;
+}
+
+.hero h2{
+    font:600 clamp(34px,8vw,58px) 'Playfair Display',serif;
+    line-height:1.1;
+    margin:2px 0 10px;
+}
+
+.hero p{
+    font-size:13px;
+    color:var(--muted);
+    letter-spacing:.05em;
+}
+
+.divider{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    max-width:240px;
+    margin:23px auto;
+    color:#c58b94;
+}
+
+.divider:before,
+.divider:after{
+    content:"";
+    height:1px;
+    background:var(--line);
+    flex:1;
+}
+
+/* =========================
+   FOTO
+========================= */
+
+.photo-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    max-width:650px;
+    margin:0 auto 42px;
+}
+
+.polaroid{
+    background:#fff;
+    padding:9px 9px 14px;
+    box-shadow:0 8px 25px #4e31300d;
+    transform:rotate(-1.5deg);
+    border:1px solid #f0e8e3;
+}
+
+.polaroid:nth-child(2){
+    transform:rotate(1.8deg);
+    margin-top:22px;
+}
+
+.polaroid:nth-child(3){
+    transform:rotate(1.2deg);
+    margin-top:-10px;
+}
+
+.polaroid:nth-child(4){
+    transform:rotate(-1.4deg);
+    margin-top:12px;
+}
+
+.polaroid img{
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    display:block;
+    background:#f1e5e1;
+}
+
+.polaroid p{
+    text-align:center;
+    font:18px 'Sacramento',cursive;
+    color:#88656b;
+    margin:9px 0 0;
+}
+
+/* =========================
+   SURAT
+========================= */
+
+.letter{
+    background:#fffdf9;
+    border:1px solid #f0e2dd;
+    border-radius:4px;
+    padding:clamp(22px,6vw,45px);
+    box-shadow:0 14px 35px #68454a0b;
+    position:relative;
+    margin:0 auto 30px;
+    max-width:650px;
+}
+
+.letter:before{
+    content:"";
+    position:absolute;
+    top:12px;
+    left:12px;
+    width:35px;
+    height:35px;
+    border-top:1px solid #dcb9bb;
+    border-left:1px solid #dcb9bb;
+}
+
+.letter:after{
+    content:"♡";
+    position:absolute;
+    right:20px;
+    top:14px;
+    color:#d5a0a6;
+    font-size:24px;
+}
+
+.letter h3{
+    text-align:center;
+    font:500 34px 'Sacramento',cursive;
+    color:var(--rose);
+    margin:0 0 18px;
+}
+
+.letter p{
+    font-size:14px;
+    line-height:1.95;
+    color:#665456;
+    margin:0 0 14px;
+}
+
+.signature{
+    text-align:right;
+    font:28px 'Sacramento',cursive;
+    color:var(--rose);
+    margin-top:20px;
+}
+
+/* =========================
+   KEJUTAN
+========================= */
+
+.surprise{
+    text-align:center;
+    padding:25px 10px 40px;
+}
+
+.surprise button{
+    border:1px solid #d8aab0;
+    color:#a45e6d;
+    background:#fff7f5;
+    padding:12px 20px;
+    border-radius:99px;
+}
+
+.surprise-message{
+    display:none;
+    margin:20px auto 0;
+    max-width:400px;
+    font:27px 'Sacramento',cursive;
+    color:#a45e6d;
+    line-height:1.5;
+}
+
+.footer{
+    text-align:center;
+    color:#ad9696;
+    font-size:11px;
+    letter-spacing:.08em;
+}
+
+/* =========================
+   ANIMASI
+========================= */
+
+.heart{
+    position:fixed;
+    bottom:-30px;
+    color:#ce8492;
+    animation:float 6s linear forwards;
+    pointer-events:none;
+    z-index:5;
+}
+
+@keyframes float{
+    to{
+        transform:translateY(-110vh) rotate(25deg);
+        opacity:0;
+    }
+}
+
+.fade{
+    animation:fade .8s ease both;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+}
+
+/* =========================
+   HP
+========================= */
+
+@media(max-width:430px){
+
+    .photo-grid{
+        gap:10px;
+    }
+
+    .polaroid{
+        padding:7px 7px 11px;
+    }
+
+    .polaroid p{
+        font-size:16px;
+    }
+
+    .letter p{
+        font-size:13px;
+    }
+}
 </style>
 </head>
+
 <body>
+
+<!-- =========================
+     HALAMAN PEMBUKA
+========================= -->
+
 <section class="cover" id="cover">
- <div class="envelope-wrap">
-  <div class="eyebrow">a little something, just for you</div>
-  <div class="envelope"><div class="seal">♡</div></div>
-  <h1>Untuk Nafisah</h1>
-  <p>Ada satu hal kecil yang ingin Dito sampaikan di hari spesialmu...</p>
-  <button class="open-btn" onclick="openLetter()">Buka suratnya ♡</button>
-  <div class="hint">sentuh tombolnya ya, sayang</div>
- </div>
+
+    <div class="envelope-wrap">
+
+        <div class="eyebrow">
+            a little something, just for you
+        </div>
+
+        <div class="envelope">
+            <div class="seal">♡</div>
+        </div>
+
+        <h1>Untuk Nafisah</h1>
+
+        <p>
+            Ada satu hal kecil yang ingin Dito sampaikan
+            di hari spesialmu...
+        </p>
+
+        <button class="open-btn" onclick="openLetter()">
+            Buka suratnya ♡
+        </button>
+
+        <div class="hint">
+            sentuh tombolnya ya, sayang
+        </div>
+
+    </div>
+
 </section>
+
+
+<!-- =========================
+     ISI WEBSITE
+========================= -->
+
 <main id="content">
- <div class="topline">made with love · by dito</div>
- <header class="hero fade">
-  <p class="script">happy birthday,</p>
-  <h2>Nafisah <span style="color:#c87988">♡</span></h2>
-  <p>hari spesial untuk seseorang yang istimewa</p>
-  <div class="divider">✿</div>
- </header>
- <section class="photo-grid fade" aria-label="Kenangan kita">
-  <div class="polaroid"><img src="foto-1.jpeg" alt="Kenangan bersama"><p>one of my favorite moments ♡</p></div>
-  <div class="polaroid"><img src="foto-2.jpeg" alt="Foto berdua"><p>with my favorite person</p></div>
-  <div class="polaroid"><img src="foto-3.jpeg" alt="Jalan bersama"><p>little memories, big feelings</p></div>
-  <div class="polaroid"><img src="foto-4.jpeg" alt="Senyum bersama"><p>you make life sweeter ♡</p></div>
- </section>
- <article class="letter fade">
-  <h3>Dear, Nafisah...</h3>
-  <p>Selamat ulang tahun, sayangku. ♡</p>
-  <p>Hari ini adalah hari yang spesial, karena hari ini seseorang yang begitu berarti di hidupku bertambah usia. Aku bersyukur bisa mengenal kamu, bisa dekat dengan kamu, dan punya banyak cerita yang bisa kita kenang bersama.</p>
-  <p>Terima kasih sudah hadir di hidupku, sudah menjadi tempat berbagi cerita, tempat aku tertawa, dan seseorang yang selalu berhasil membuat hari-hariku terasa lebih baik. Mungkin aku belum selalu bisa menjadi yang terbaik, dan terkadang masih banyak kurangnya, tapi aku ingin terus belajar untuk menjadi seseorang yang lebih baik buat kamu.</p>
-  <p>Di umur kamu yang baru ini, aku berharap semua hal baik selalu menghampiri kamu. Semoga kamu selalu diberi kesehatan, dimudahkan setiap langkahnya, dilancarkan semua urusannya, dan satu per satu impian kamu bisa terwujud. Kalau nanti ada hari yang terasa berat, semoga kamu selalu ingat kalau kamu nggak harus menghadapi semuanya sendirian.</p>
-  <p>Jangan terlalu keras sama diri sendiri, ya. Kamu sudah berusaha sejauh ini, dan aku bangga sama kamu. Tetap jadi Nafisah yang aku kenal—yang manis, kuat, baik, dan punya banyak hal indah di dalam dirinya. Semoga lebih banyak tawa daripada sedih, lebih banyak tenang daripada khawatir, dan lebih banyak alasan untuk bahagia.</p>
-  <p>Aku nggak tahu semua hal yang akan kita temui ke depannya, tapi aku berharap kita masih bisa menciptakan banyak kenangan indah, saling mendukung, saling memahami, dan tumbuh jadi versi terbaik dari diri kita masing-masing.</p>
-  <p>Selamat ulang tahun sekali lagi, Nafisah. Terima kasih sudah menjadi bagian dari cerita hidupku. Semoga hari ini dan hari-hari setelahnya selalu punya alasan untuk membuat kamu tersenyum.</p>
-  <p>I love you, sayang. Hari ini, besok, dan semoga seterusnya. ♡</p>
-  <div class="signature">Always yours,<br>Dito ♡</div>
- </article>
- <section class="surprise">
-  <button onclick="showSurprise()">Satu kejutan lagi... ♡</button>
-  <div class="surprise-message" id="surprise">Kalau aku boleh memilih lagi, aku tetap ingin bertemu dan mengenal kamu. Happy birthday, kesayanganku! 💗</div>
- </section>
- <div class="footer">a small page for you, with a whole lot of love ♡</div>
+
+    <div class="topline">
+        made with love · by dito
+    </div>
+
+
+    <header class="hero fade">
+
+        <p class="script">
+            happy birthday,
+        </p>
+
+        <h2>
+            Nafisah <span style="color:#c87988">♡</span>
+        </h2>
+
+        <p>
+            hari spesial untuk seseorang yang istimewa
+        </p>
+
+        <div class="divider">
+            ✿
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         FOTO KALIAN
+    ========================= -->
+
+    <section class="photo-grid fade" aria-label="Kenangan kita">
+
+        <!-- FOTO 1 -->
+        <div class="polaroid">
+            <img
+                src="WhatsApp Image 2026-10-05 at 00.53.15.jpeg"
+                alt="Kenangan bersama Dito dan Nafisah"
+            >
+            <p>
+                one of my favorite moments ♡
+            </p>
+        </div>
+
+
+        <!-- FOTO 2 -->
+        <div class="polaroid">
+            <img
+                src="WhatsApp Image 2026-10-05 at 00.53.16.jpeg"
+                alt="Foto Dito dan Nafisah"
+            >
+            <p>
+                with my favorite person
+            </p>
+        </div>
+
+
+        <!-- FOTO 3 -->
+        <div class="polaroid">
+            <img
+                src="WhatsApp Image 2026-10-05 at 00.53.16 (1).jpeg"
+                alt="Kenangan jalan bersama"
+            >
+            <p>
+                little memories, big feelings
+            </p>
+        </div>
+
+
+        <!-- FOTO 4 -->
+        <div class="polaroid">
+            <img
+                src="WhatsApp Image 2026-10-05 at 00.53.16 (2).jpeg"
+                alt="Senyum bersama"
+            >
+            <p>
+                you make life sweeter ♡
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SURAT UNTUK NAFISAH
+    ========================= -->
+
+    <article class="letter fade">
+
+        <h3>
+            Dear, Nafisah...
+        </h3>
+
+        <p>
+            Selamat ulang tahun, sayangku. ♡
+        </p>
+
+        <p>
+            Hari ini adalah hari yang spesial, karena hari ini
+            seseorang yang begitu berarti di hidupku bertambah usia.
+            Aku bersyukur bisa mengenal kamu, bisa dekat dengan kamu,
+            dan punya banyak cerita yang bisa kita kenang bersama.
+        </p>
+
+        <p>
+            Terima kasih sudah hadir di hidupku, sudah menjadi tempat
+            berbagi cerita, tempat aku tertawa, dan seseorang yang
+            selalu berhasil membuat hari-hariku terasa lebih baik.
+            Mungkin aku belum selalu bisa menjadi yang terbaik,
+            dan terkadang masih banyak kurangnya, tapi aku ingin terus
+            belajar untuk menjadi seseorang yang lebih baik buat kamu.
+        </p>
+
+        <p>
+            Di umur kamu yang baru ini, aku berharap semua hal baik
+            selalu menghampiri kamu. Semoga kamu selalu diberi kesehatan,
+            dimudahkan setiap langkahnya, dilancarkan semua urusannya,
+            dan satu per satu impian kamu bisa terwujud.
+            Kalau nanti ada hari yang terasa berat, semoga kamu selalu
+            ingat kalau kamu nggak harus menghadapi semuanya sendirian.
+        </p>
+
+        <p>
+            Jangan terlalu keras sama diri sendiri, ya.
+            Kamu sudah berusaha sejauh ini, dan aku bangga sama kamu.
+            Tetap jadi Nafisah yang aku kenal—yang manis, kuat, baik,
+            dan punya banyak hal indah di dalam dirinya.
+            Semoga lebih banyak tawa daripada sedih,
+            lebih banyak tenang daripada khawatir,
+            dan lebih banyak alasan untuk bahagia.
+        </p>
+
+        <p>
+            Aku nggak tahu semua hal yang akan kita temui ke depannya,
+            tapi aku berharap kita masih bisa menciptakan banyak kenangan
+            indah, saling mendukung, saling memahami, dan tumbuh jadi
+            versi terbaik dari diri kita masing-masing.
+        </p>
+
+        <p>
+            Selamat ulang tahun sekali lagi, Nafisah.
+            Terima kasih sudah menjadi bagian dari cerita hidupku.
+            Semoga hari ini dan hari-hari setelahnya selalu punya alasan
+            untuk membuat kamu tersenyum.
+        </p>
+
+        <p>
+            I love you, sayang.
+            Hari ini, besok, dan semoga seterusnya. ♡
+        </p>
+
+
+        <div class="signature">
+            Always yours,<br>
+            Dito ♡
+        </div>
+
+    </article>
+
+
+    <!-- =========================
+         KEJUTAN
+    ========================= -->
+
+    <section class="surprise">
+
+        <button onclick="showSurprise()">
+            Satu kejutan lagi... ♡
+        </button>
+
+        <div class="surprise-message" id="surprise">
+
+            Kalau aku boleh memilih lagi,
+            aku tetap ingin bertemu dan mengenal kamu.
+            Happy birthday, kesayanganku! 💗
+
+        </div>
+
+    </section>
+
+
+    <div class="footer">
+        a small page for you, with a whole lot of love ♡
+    </div>
+
 </main>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
+
 function openLetter(){
- document.getElementById('cover').style.display='none';
- const main=document.getElementById('content');main.style.display='block';
- window.scrollTo(0,0);hearts(18);
+
+    document.getElementById('cover').style.display = 'none';
+
+    const main = document.getElementById('content');
+
+    main.style.display = 'block';
+
+    window.scrollTo(0,0);
+
+    hearts(18);
 }
+
+
 function showSurprise(){
- const el=document.getElementById('surprise');el.style.display='block';el.classList.add('fade');hearts(24);
+
+    const el = document.getElementById('surprise');
+
+    el.style.display = 'block';
+
+    el.classList.add('fade');
+
+    hearts(24);
 }
+
+
 function hearts(n){
- for(let i=0;i<n;i++){setTimeout(()=>{let h=document.createElement('span');h.className='heart';h.textContent=['♡','♥','✿'][Math.floor(Math.random()*3)];h.style.left=Math.random()*100+'vw';h.style.fontSize=(14+Math.random()*22)+'px';h.style.animationDuration=(4+Math.random()*4)+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),8500)},i*100)}
+
+    for(let i = 0; i < n; i++){
+
+        setTimeout(() => {
+
+            let h = document.createElement('span');
+
+            h.className = 'heart';
+
+            h.textContent =
+                ['♡','♥','✿'][Math.floor(Math.random()*3)];
+
+            h.style.left =
+                Math.random()*100 + 'vw';
+
+            h.style.fontSize =
+                (14 + Math.random()*22) + 'px';
+
+            h.style.animationDuration =
+                (4 + Math.random()*4) + 's';
+
+            document.body.appendChild(h);
+
+            setTimeout(() => h.remove(), 8500);
+
+        }, i * 100);
+    }
 }
+
 </script>
+
 </body>
 </html>
