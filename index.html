@@ -3,23 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f8e8e7">
-<title>Untuk Nafisah ♡♡</title>
+
+<meta name="theme-color" content="#f9e7eb">
+<meta name="description" content="Sebuah halaman kecil untuk Nafisah, dibuat dengan penuh cinta.">
+
+<title>Untuk Nafisah ♡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Sacramento&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&family=Sacramento&display=swap');
 
 :root{
-    --cream:#fffaf4;
-    --pink:#f6dfe2;
-    --rose:#bd6878;
-    --ink:#49383a;
-    --muted:#8e7778;
-    --line:#ead7d3;
+    --cream:#fffaf7;
+    --soft:#fcecef;
+    --pink:#f5d9df;
+    --rose:#b85f72;
+    --dark:#49383b;
+    --muted:#927c80;
+    --line:#ecd9dc;
+    --white:#ffffff;
 }
 
 *{
     box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
@@ -27,220 +38,296 @@ html{
 }
 
 body{
-    margin:0;
     background:var(--cream);
-    color:var(--ink);
+    color:var(--dark);
     font-family:'DM Sans',sans-serif;
     overflow-x:hidden;
 }
 
-body:before{
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
     content:"";
     position:fixed;
     inset:0;
     pointer-events:none;
-    opacity:.25;
-    background-image:radial-gradient(#d5a8a8 .7px,transparent .7px);
-    background-size:17px 17px;
-    z-index:-1;
+    z-index:-2;
+    background-image:
+        radial-gradient(#e4b8c0 0.7px,transparent 0.7px);
+    background-size:18px 18px;
+    opacity:.3;
 }
 
-button{
-    font:inherit;
-    cursor:pointer;
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#f7dce2;
+    border-radius:50%;
+    filter:blur(100px);
+    opacity:.35;
+    top:-200px;
+    left:-200px;
+    z-index:-3;
 }
 
 /* =========================
-   HALAMAN PEMBUKA
+   COVER
 ========================= */
 
 .cover{
     min-height:100svh;
-    display:grid;
-    place-items:center;
-    padding:24px;
-    background:radial-gradient(
-        ellipse at 50% 30%,
-        #fff 0,
-        #f9e9e8 48%,
-        #f2d8d9 100%
-    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px 20px;
     position:relative;
     overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            #ffffff 0%,
+            #fff3f2 35%,
+            #f7dfe2 75%,
+            #efd0d5 100%
+        );
 }
 
-.cover:before,
-.cover:after{
+.cover::before{
     content:"♡";
     position:absolute;
-    color:#d99ba6;
-    font-size:clamp(90px,20vw,220px);
-    opacity:.23;
-    transform:rotate(-17deg);
+    font-size:250px;
+    color:#d994a2;
+    opacity:.13;
+    left:-70px;
+    top:5%;
+    transform:rotate(-20deg);
 }
 
-.cover:before{
-    left:-35px;
-    top:7%;
+.cover::after{
+    content:"♡";
+    position:absolute;
+    font-size:280px;
+    color:#d994a2;
+    opacity:.13;
+    right:-80px;
+    bottom:-30px;
+    transform:rotate(20deg);
 }
 
-.cover:after{
-    right:-30px;
-    bottom:4%;
-    transform:rotate(18deg);
-}
-
-.envelope-wrap{
-    width:min(100%,430px);
+.cover-content{
+    width:min(100%,500px);
     text-align:center;
     position:relative;
-    z-index:1;
+    z-index:2;
+    animation:fadeUp 1s ease;
 }
 
 .eyebrow{
-    letter-spacing:.24em;
+    font-size:11px;
+    letter-spacing:.28em;
     text-transform:uppercase;
-    font-size:10px;
     color:var(--muted);
     font-weight:600;
 }
 
-.envelope{
-    width:220px;
-    height:150px;
-    margin:30px auto 25px;
+/* =========================
+   ENVELOPE
+========================= */
+
+.envelope-container{
+    width:250px;
+    height:175px;
+    margin:40px auto 35px;
     position:relative;
-    background:#e8bfc4;
-    border-radius:8px;
-    box-shadow:0 18px 35px #a66e7626;
-    display:grid;
-    place-items:center;
-    transition:.5s;
+    perspective:1000px;
 }
 
-.envelope:before{
+.envelope{
+    width:100%;
+    height:100%;
+    position:relative;
+    background:#e9bdc5;
+    border-radius:10px;
+    box-shadow:
+        0 25px 50px rgba(120,70,80,.20);
+}
+
+.envelope::before{
     content:"";
     position:absolute;
     inset:0;
-    background:#f1d0d2;
-    clip-path:polygon(0 0,50% 58%,100% 0);
-    border-radius:8px 8px 0 0;
+    background:#f5d4d8;
+
+    clip-path:polygon(
+        0 0,
+        50% 58%,
+        100% 0
+    );
+
+    border-radius:10px 10px 0 0;
     transform-origin:top;
-    transition:.5s;
+    transition:transform .8s ease;
+    z-index:3;
 }
 
-.envelope:after{
+.envelope::after{
     content:"";
     position:absolute;
     inset:0;
-    background:#e6b9bf;
-    clip-path:polygon(0 100%,50% 47%,100% 100%);
-    border-radius:0 0 8px 8px;
+    background:#e2aeb8;
+
+    clip-path:polygon(
+        0 100%,
+        50% 45%,
+        100% 100%
+    );
+
+    border-radius:0 0 10px 10px;
+    z-index:2;
 }
 
 .seal{
-    position:relative;
-    z-index:2;
-    background:#fff5f2;
-    width:42px;
-    height:42px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:48px;
+    height:48px;
     border-radius:50%;
+    background:#fff8f6;
+    color:var(--rose);
     display:grid;
     place-items:center;
-    color:var(--rose);
-    font-size:21px;
-    box-shadow:0 3px 10px #9d687522;
-}
-
-.cover h1{
-    font:500 clamp(40px,10vw,60px) 'Sacramento',cursive;
-    margin:0 0 8px;
-    color:#a85d6d;
-}
-
-.cover p{
-    color:#856e70;
-    line-height:1.7;
-    margin:8px auto 22px;
-    max-width:310px;
-    font-size:14px;
-}
-
-.open-btn{
-    border:0;
-    background:#a95f70;
-    color:white;
-    border-radius:99px;
-    padding:13px 24px;
-    box-shadow:0 8px 18px #a95f7030;
-    transition:.2s;
-}
-
-.open-btn:hover{
-    transform:translateY(-2px);
-    background:#914b5d;
-}
-
-.hint{
-    font-size:11px;
-    color:#a78b8d;
-    margin-top:14px;
+    font-size:24px;
+    z-index:5;
+    box-shadow:0 5px 15px rgba(100,50,60,.15);
 }
 
 /* =========================
-   ISI WEBSITE
+   COVER TEXT
+========================= */
+
+.cover h1{
+    font-family:'Sacramento',cursive;
+    font-size:clamp(58px,15vw,82px);
+    font-weight:400;
+    color:#a95769;
+    line-height:1;
+    margin-bottom:12px;
+}
+
+.cover-description{
+    max-width:340px;
+    margin:auto;
+    color:#826c70;
+    font-size:14px;
+    line-height:1.8;
+}
+
+.open-btn{
+    margin-top:28px;
+    border:none;
+    border-radius:50px;
+    padding:15px 28px;
+
+    background:linear-gradient(
+        135deg,
+        #b96577,
+        #a65367
+    );
+
+    color:white;
+    font-size:14px;
+    font-weight:600;
+
+    box-shadow:
+        0 12px 25px rgba(166,83,103,.25);
+
+    transition:.3s ease;
+}
+
+.open-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:
+        0 16px 30px rgba(166,83,103,.32);
+}
+
+.hint{
+    margin-top:15px;
+    font-size:11px;
+    color:#a58c90;
+}
+
+/* =========================
+   MAIN
 ========================= */
 
 main{
     display:none;
-    max-width:780px;
+    width:min(100%,850px);
     margin:auto;
-    padding:24px 18px 70px;
+    padding:25px 20px 70px;
 }
 
 .topline{
     text-align:center;
-    padding:25px 0 16px;
-    color:var(--muted);
-    font-size:11px;
-    letter-spacing:.22em;
+    padding:20px 0;
+    font-size:10px;
+    letter-spacing:.25em;
     text-transform:uppercase;
+    color:#a58b8e;
 }
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
     text-align:center;
-    padding:20px 0 32px;
+    padding:45px 0 40px;
 }
 
-.hero .script{
-    font:48px 'Sacramento',cursive;
+.script{
+    font-family:'Sacramento',cursive;
+    font-size:48px;
     color:var(--rose);
-    margin:0;
+    margin-bottom:5px;
 }
 
 .hero h2{
-    font:600 clamp(34px,8vw,58px) 'Playfair Display',serif;
-    line-height:1.1;
-    margin:2px 0 10px;
+    font-family:'Playfair Display',serif;
+    font-size:clamp(42px,10vw,70px);
+    line-height:1.05;
+    font-weight:600;
 }
 
-.hero p{
+.hero h2 span{
+    color:#c87587;
+}
+
+.hero-subtitle{
+    margin-top:14px;
     font-size:13px;
     color:var(--muted);
-    letter-spacing:.05em;
+    letter-spacing:.06em;
 }
 
 .divider{
     display:flex;
     align-items:center;
-    gap:12px;
-    max-width:240px;
-    margin:23px auto;
-    color:#c58b94;
+    gap:15px;
+    max-width:280px;
+    margin:28px auto 0;
+    color:#c47b88;
 }
 
-.divider:before,
-.divider:after{
+.divider::before,
+.divider::after{
     content:"";
     height:1px;
     background:var(--line);
@@ -248,38 +335,81 @@ main{
 }
 
 /* =========================
-   FOTO
+   SECTION TITLE
+========================= */
+
+.section-title{
+    text-align:center;
+    margin:35px 0 25px;
+}
+
+.section-title .small{
+    font-size:10px;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    color:var(--muted);
+}
+
+.section-title h3{
+    font-family:'Sacramento',cursive;
+    font-size:42px;
+    color:var(--rose);
+    font-weight:400;
+    margin-top:3px;
+}
+
+/* =========================
+   PHOTO GRID
 ========================= */
 
 .photo-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
-    max-width:650px;
-    margin:0 auto 42px;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+    max-width:720px;
+    margin:0 auto 60px;
 }
 
 .polaroid{
-    background:#fff;
-    padding:9px 9px 14px;
-    box-shadow:0 8px 25px #4e31300d;
+    background:white;
+    padding:10px 10px 18px;
+    border:1px solid #f0e3df;
+
+    box-shadow:
+        0 15px 35px rgba(90,50,55,.10);
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
+}
+
+.polaroid:nth-child(1){
     transform:rotate(-1.5deg);
-    border:1px solid #f0e8e3;
 }
 
 .polaroid:nth-child(2){
-    transform:rotate(1.8deg);
-    margin-top:22px;
+    transform:rotate(1.5deg);
+    margin-top:25px;
 }
 
 .polaroid:nth-child(3){
     transform:rotate(1.2deg);
-    margin-top:-10px;
+    margin-top:-12px;
 }
 
 .polaroid:nth-child(4){
-    transform:rotate(-1.4deg);
-    margin-top:12px;
+    transform:rotate(-1.3deg);
+    margin-top:15px;
+}
+
+.polaroid:hover{
+    transform:
+        translateY(-8px)
+        rotate(0deg)
+        scale(1.015);
+
+    box-shadow:
+        0 25px 45px rgba(90,50,55,.16);
 }
 
 .polaroid img{
@@ -287,187 +417,373 @@ main{
     aspect-ratio:4/5;
     object-fit:cover;
     display:block;
-    background:#f1e5e1;
+    background:#f4e6e4;
+    cursor:pointer;
 }
 
 .polaroid p{
     text-align:center;
-    font:18px 'Sacramento',cursive;
-    color:#88656b;
-    margin:9px 0 0;
+    font-family:'Sacramento',cursive;
+    font-size:22px;
+    color:#8a666d;
+    margin-top:10px;
 }
 
 /* =========================
-   SURAT
+   MEMORY MESSAGE
+========================= */
+
+.memory-note{
+    max-width:620px;
+    margin:0 auto 55px;
+    text-align:center;
+    padding:25px;
+    background:rgba(255,255,255,.65);
+    border:1px solid var(--line);
+    border-radius:20px;
+}
+
+.memory-note p{
+    font-family:'Playfair Display',serif;
+    font-size:17px;
+    line-height:1.8;
+    color:#705b5e;
+}
+
+/* =========================
+   LETTER
 ========================= */
 
 .letter{
-    background:#fffdf9;
-    border:1px solid #f0e2dd;
-    border-radius:4px;
-    padding:clamp(22px,6vw,45px);
-    box-shadow:0 14px 35px #68454a0b;
+    max-width:700px;
+    margin:0 auto 50px;
+    padding:clamp(25px,6vw,55px);
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.95),
+            rgba(255,253,249,.95)
+        );
+
+    border:1px solid #efdfdb;
+    border-radius:5px;
+
+    box-shadow:
+        0 20px 50px rgba(90,50,55,.08);
+
     position:relative;
-    margin:0 auto 30px;
-    max-width:650px;
 }
 
-.letter:before{
+.letter::before{
     content:"";
     position:absolute;
-    top:12px;
-    left:12px;
-    width:35px;
-    height:35px;
-    border-top:1px solid #dcb9bb;
-    border-left:1px solid #dcb9bb;
+    top:15px;
+    left:15px;
+    width:38px;
+    height:38px;
+    border-top:1px solid #dfbfc2;
+    border-left:1px solid #dfbfc2;
 }
 
-.letter:after{
+.letter::after{
     content:"♡";
     position:absolute;
-    right:20px;
-    top:14px;
-    color:#d5a0a6;
-    font-size:24px;
+    right:22px;
+    top:13px;
+    font-size:25px;
+    color:#d29ba4;
 }
 
 .letter h3{
     text-align:center;
-    font:500 34px 'Sacramento',cursive;
+    font-family:'Sacramento',cursive;
+    font-size:43px;
+    font-weight:400;
     color:var(--rose);
-    margin:0 0 18px;
+    margin-bottom:25px;
 }
 
 .letter p{
     font-size:14px;
-    line-height:1.95;
+    line-height:2;
     color:#665456;
-    margin:0 0 14px;
+    margin-bottom:16px;
+}
+
+.letter p:first-of-type{
+    font-weight:600;
+    color:#9e5668;
 }
 
 .signature{
     text-align:right;
-    font:28px 'Sacramento',cursive;
+    font-family:'Sacramento',cursive;
+    font-size:34px;
     color:var(--rose);
-    margin-top:20px;
+    line-height:1.2;
+    margin-top:25px;
 }
 
 /* =========================
-   KEJUTAN
+   SURPRISE
 ========================= */
 
 .surprise{
     text-align:center;
-    padding:25px 10px 40px;
+    padding:30px 10px 55px;
+}
+
+.surprise-label{
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:15px;
 }
 
 .surprise button{
-    border:1px solid #d8aab0;
-    color:#a45e6d;
-    background:#fff7f5;
-    padding:12px 20px;
-    border-radius:99px;
+    border:1px solid #d7aab1;
+    background:#fff8f6;
+    color:#a55d6d;
+    border-radius:50px;
+    padding:14px 23px;
+    font-size:13px;
+    transition:.3s;
+}
+
+.surprise button:hover{
+    background:#f9e4e7;
+    transform:translateY(-2px);
 }
 
 .surprise-message{
     display:none;
-    margin:20px auto 0;
-    max-width:400px;
-    font:27px 'Sacramento',cursive;
-    color:#a45e6d;
-    line-height:1.5;
-}
+    max-width:500px;
+    margin:25px auto 0;
 
-.footer{
-    text-align:center;
-    color:#ad9696;
-    font-size:11px;
-    letter-spacing:.08em;
+    font-family:'Sacramento',cursive;
+    font-size:32px;
+    line-height:1.5;
+    color:#a65b6c;
 }
 
 /* =========================
-   ANIMASI
+   FOOTER
+========================= */
+
+.footer{
+    text-align:center;
+    color:#ae9699;
+    font-size:10px;
+    letter-spacing:.1em;
+}
+
+/* =========================
+   IMAGE MODAL
+========================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(30,20,22,.88);
+    z-index:100;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+    animation:fade .3s ease;
+}
+
+.modal img{
+    max-width:min(95vw,800px);
+    max-height:90vh;
+    object-fit:contain;
+    border-radius:8px;
+    box-shadow:0 20px 70px rgba(0,0,0,.4);
+}
+
+.close-modal{
+    position:absolute;
+    right:25px;
+    top:20px;
+
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+
+    background:rgba(255,255,255,.15);
+    color:white;
+    font-size:24px;
+}
+
+/* =========================
+   FLOATING HEARTS
 ========================= */
 
 .heart{
     position:fixed;
     bottom:-30px;
-    color:#ce8492;
-    animation:float 6s linear forwards;
+    color:#d17c8c;
     pointer-events:none;
-    z-index:5;
+    z-index:50;
+    animation:floatUp linear forwards;
 }
 
-@keyframes float{
-    to{
-        transform:translateY(-110vh) rotate(25deg);
+@keyframes floatUp{
+
+    0%{
+        transform:translateY(0) rotate(0);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    100%{
+        transform:
+            translateY(-110vh)
+            rotate(25deg);
         opacity:0;
     }
 }
 
-.fade{
-    animation:fade .8s ease both;
-}
+@keyframes fadeUp{
 
-@keyframes fade{
     from{
         opacity:0;
-        transform:translateY(12px);
+        transform:translateY(20px);
     }
 
     to{
         opacity:1;
-        transform:none;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fade{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
     }
 }
 
 /* =========================
-   HP
+   MOBILE
 ========================= */
 
-@media(max-width:430px){
+@media(max-width:600px){
+
+    main{
+        padding-left:15px;
+        padding-right:15px;
+    }
+
+    .envelope-container{
+        width:220px;
+        height:155px;
+        margin-top:35px;
+    }
+
+    .cover h1{
+        font-size:65px;
+    }
 
     .photo-grid{
-        gap:10px;
+        gap:12px;
     }
 
     .polaroid{
-        padding:7px 7px 11px;
+        padding:7px 7px 13px;
     }
 
     .polaroid p{
-        font-size:16px;
+        font-size:17px;
+    }
+
+    .letter{
+        padding:28px 22px;
     }
 
     .letter p{
         font-size:13px;
+        line-height:1.9;
     }
+
+    .letter h3{
+        font-size:38px;
+    }
+
+    .memory-note{
+        padding:20px;
+    }
+
+    .memory-note p{
+        font-size:15px;
+    }
+
 }
+
+@media(max-width:380px){
+
+    .photo-grid{
+        grid-template-columns:1fr;
+    }
+
+    .polaroid:nth-child(n){
+        margin-top:0;
+        transform:rotate(0deg);
+    }
+
+    .cover h1{
+        font-size:58px;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
 <!-- =========================
-     HALAMAN PEMBUKA
+     COVER
 ========================= -->
 
 <section class="cover" id="cover">
 
-    <div class="envelope-wrap">
+    <div class="cover-content">
 
         <div class="eyebrow">
             a little something, just for you
         </div>
 
-        <div class="envelope">
-            <div class="seal">♡</div>
+        <div class="envelope-container">
+
+            <div class="envelope">
+
+                <div class="seal">
+                    ♡
+                </div>
+
+            </div>
+
         </div>
 
-        <h1>Untuk Nafisah</h1>
+        <h1>
+            Untuk Nafisah
+        </h1>
 
-        <p>
+        <p class="cover-description">
             Ada satu hal kecil yang ingin Dito sampaikan
             di hari spesialmu...
         </p>
@@ -486,7 +802,7 @@ main{
 
 
 <!-- =========================
-     ISI WEBSITE
+     MAIN CONTENT
 ========================= -->
 
 <main id="content">
@@ -496,17 +812,19 @@ main{
     </div>
 
 
-    <header class="hero fade">
+    <!-- HERO -->
+
+    <header class="hero">
 
         <p class="script">
             happy birthday,
         </p>
 
         <h2>
-            Nafisah <span style="color:#c87988">♡</span>
+            Nafisah <span>♡</span>
         </h2>
 
-        <p>
+        <p class="hero-subtitle">
             hari spesial untuk seseorang yang istimewa
         </p>
 
@@ -517,75 +835,111 @@ main{
     </header>
 
 
-    <!-- =========================
-         FOTO KALIAN
-    ========================= -->
+    <!-- MEMORIES -->
 
-    <section class="photo-grid fade" aria-label="Kenangan kita">
+    <div class="section-title">
 
-        <!-- FOTO 1 -->
+        <div class="small">
+            our little memories
+        </div>
+
+        <h3>
+            Kenangan Kita
+        </h3>
+
+    </div>
+
+
+    <section class="photo-grid">
+
         <div class="polaroid">
+
             <img
-                src="WhatsApp Image 2026-10-05 at 00.53.15.jpeg"
+                src="foto-1.jpeg"
                 alt="Kenangan bersama Dito dan Nafisah"
+                onclick="openImage(this.src)"
             >
+
             <p>
                 one of my favorite moments ♡
             </p>
+
         </div>
 
 
-        <!-- FOTO 2 -->
         <div class="polaroid">
+
             <img
-                src="WhatsApp Image 2026-10-05 at 00.53.16.jpeg"
+                src="foto-2.jpeg"
                 alt="Foto Dito dan Nafisah"
+                onclick="openImage(this.src)"
             >
+
             <p>
                 with my favorite person
             </p>
+
         </div>
 
 
-        <!-- FOTO 3 -->
         <div class="polaroid">
+
             <img
-                src="WhatsApp Image 2026-10-05 at 00.53.16 (1).jpeg"
+                src="foto-3.jpeg"
                 alt="Kenangan jalan bersama"
+                onclick="openImage(this.src)"
             >
+
             <p>
                 little memories, big feelings
             </p>
+
         </div>
 
 
-        <!-- FOTO 4 -->
         <div class="polaroid">
+
             <img
-                src="WhatsApp Image 2026-10-05 at 00.53.16 (2).jpeg"
+                src="foto-4.jpeg"
                 alt="Senyum bersama"
+                onclick="openImage(this.src)"
             >
+
             <p>
                 you make life sweeter ♡
             </p>
+
         </div>
 
     </section>
 
 
-    <!-- =========================
-         SURAT UNTUK NAFISAH
-    ========================= -->
+    <!-- SMALL MESSAGE -->
 
-    <article class="letter fade">
+    <section class="memory-note">
+
+        <p>
+            "Dari sekian banyak hal yang terjadi dalam hidup,
+            salah satu hal yang paling aku syukuri adalah
+            bisa mengenal dan memiliki kamu dalam ceritaku."
+        </p>
+
+    </section>
+
+
+    <!-- LETTER -->
+
+    <article class="letter">
 
         <h3>
             Dear, Nafisah...
         </h3>
 
+
         <p>
             Selamat ulang tahun, sayangku. ♡
         </p>
+
 
         <p>
             Hari ini adalah hari yang spesial, karena hari ini
@@ -594,47 +948,64 @@ main{
             dan punya banyak cerita yang bisa kita kenang bersama.
         </p>
 
+
         <p>
             Terima kasih sudah hadir di hidupku, sudah menjadi tempat
             berbagi cerita, tempat aku tertawa, dan seseorang yang
             selalu berhasil membuat hari-hariku terasa lebih baik.
             Mungkin aku belum selalu bisa menjadi yang terbaik,
-            dan terkadang masih banyak kurangnya, tapi aku ingin terus
-            belajar untuk menjadi seseorang yang lebih baik buat kamu.
+            dan terkadang masih banyak kurangnya, tapi aku ingin
+            terus belajar untuk menjadi seseorang yang lebih baik
+            buat kamu.
         </p>
+
 
         <p>
             Di umur kamu yang baru ini, aku berharap semua hal baik
-            selalu menghampiri kamu. Semoga kamu selalu diberi kesehatan,
-            dimudahkan setiap langkahnya, dilancarkan semua urusannya,
-            dan satu per satu impian kamu bisa terwujud.
-            Kalau nanti ada hari yang terasa berat, semoga kamu selalu
-            ingat kalau kamu nggak harus menghadapi semuanya sendirian.
+            selalu menghampiri kamu. Semoga kamu selalu diberi
+            kesehatan, dimudahkan setiap langkahnya, dilancarkan
+            semua urusannya, dan satu per satu impian kamu bisa
+            terwujud.
         </p>
+
+
+        <p>
+            Kalau nanti ada hari yang terasa berat, semoga kamu
+            selalu ingat kalau kamu nggak harus menghadapi semuanya
+            sendirian.
+        </p>
+
 
         <p>
             Jangan terlalu keras sama diri sendiri, ya.
             Kamu sudah berusaha sejauh ini, dan aku bangga sama kamu.
-            Tetap jadi Nafisah yang aku kenal—yang manis, kuat, baik,
-            dan punya banyak hal indah di dalam dirinya.
+            Tetap jadi Nafisah yang aku kenal—yang manis, kuat,
+            baik, dan punya banyak hal indah di dalam dirinya.
+        </p>
+
+
+        <p>
             Semoga lebih banyak tawa daripada sedih,
             lebih banyak tenang daripada khawatir,
             dan lebih banyak alasan untuk bahagia.
         </p>
 
+
         <p>
             Aku nggak tahu semua hal yang akan kita temui ke depannya,
-            tapi aku berharap kita masih bisa menciptakan banyak kenangan
-            indah, saling mendukung, saling memahami, dan tumbuh jadi
-            versi terbaik dari diri kita masing-masing.
+            tapi aku berharap kita masih bisa menciptakan banyak
+            kenangan indah, saling mendukung, saling memahami,
+            dan tumbuh jadi versi terbaik dari diri kita masing-masing.
         </p>
+
 
         <p>
             Selamat ulang tahun sekali lagi, Nafisah.
             Terima kasih sudah menjadi bagian dari cerita hidupku.
-            Semoga hari ini dan hari-hari setelahnya selalu punya alasan
-            untuk membuat kamu tersenyum.
+            Semoga hari ini dan hari-hari setelahnya selalu punya
+            alasan untuk membuat kamu tersenyum.
         </p>
+
 
         <p>
             I love you, sayang.
@@ -650,22 +1021,28 @@ main{
     </article>
 
 
-    <!-- =========================
-         KEJUTAN
-    ========================= -->
+    <!-- SURPRISE -->
 
     <section class="surprise">
+
+        <div class="surprise-label">
+            one more little thing...
+        </div>
 
         <button onclick="showSurprise()">
             Satu kejutan lagi... ♡
         </button>
 
-        <div class="surprise-message" id="surprise">
-
+        <div
+            class="surprise-message"
+            id="surprise"
+        >
             Kalau aku boleh memilih lagi,
             aku tetap ingin bertemu dan mengenal kamu.
-            Happy birthday, kesayanganku! 💗
 
+            <br><br>
+
+            Happy birthday, kesayanganku! 💗
         </div>
 
     </section>
@@ -679,66 +1056,188 @@ main{
 
 
 <!-- =========================
-     JAVASCRIPT
+     IMAGE MODAL
 ========================= -->
+
+<div
+    class="modal"
+    id="imageModal"
+    onclick="closeImage()"
+>
+
+    <button
+        class="close-modal"
+        onclick="closeImage()"
+    >
+        ×
+    </button>
+
+    <img
+        id="modalImage"
+        src=""
+        alt="Foto kenangan"
+    >
+
+</div>
+
 
 <script>
 
+/* =========================
+   OPEN LETTER
+========================= */
+
 function openLetter(){
 
-    document.getElementById('cover').style.display = 'none';
+    const cover =
+        document.getElementById("cover");
 
-    const main = document.getElementById('content');
+    const content =
+        document.getElementById("content");
 
-    main.style.display = 'block';
+    cover.style.display = "none";
 
-    window.scrollTo(0,0);
+    content.style.display = "block";
 
-    hearts(18);
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+    createHearts(25);
 }
 
+
+/* =========================
+   SURPRISE
+========================= */
 
 function showSurprise(){
 
-    const el = document.getElementById('surprise');
+    const surprise =
+        document.getElementById("surprise");
 
-    el.style.display = 'block';
+    surprise.style.display = "block";
 
-    el.classList.add('fade');
+    surprise.style.animation =
+        "fadeUp .8s ease";
 
-    hearts(24);
+    createHearts(30);
+
+    setTimeout(function(){
+
+        surprise.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+
+    },100);
+
 }
 
 
-function hearts(n){
+/* =========================
+   FLOATING HEARTS
+========================= */
 
-    for(let i = 0; i < n; i++){
+function createHearts(amount){
 
-        setTimeout(() => {
+    for(let i=0;i<amount;i++){
 
-            let h = document.createElement('span');
+        setTimeout(function(){
 
-            h.className = 'heart';
+            const heart =
+                document.createElement("span");
 
-            h.textContent =
-                ['♡','♥','✿'][Math.floor(Math.random()*3)];
+            heart.className = "heart";
 
-            h.style.left =
-                Math.random()*100 + 'vw';
+            const symbols = [
+                "♡",
+                "♥",
+                "✿",
+                "♡"
+            ];
 
-            h.style.fontSize =
-                (14 + Math.random()*22) + 'px';
+            heart.textContent =
+                symbols[
+                    Math.floor(
+                        Math.random()*symbols.length
+                    )
+                ];
 
-            h.style.animationDuration =
-                (4 + Math.random()*4) + 's';
+            heart.style.left =
+                Math.random()*100 + "vw";
 
-            document.body.appendChild(h);
+            heart.style.fontSize =
+                (14 + Math.random()*24) + "px";
 
-            setTimeout(() => h.remove(), 8500);
+            heart.style.animationDuration =
+                (4 + Math.random()*4) + "s";
 
-        }, i * 100);
+            document.body.appendChild(heart);
+
+            setTimeout(function(){
+
+                heart.remove();
+
+            },9000);
+
+        },i*100);
+
     }
+
 }
+
+
+/* =========================
+   IMAGE MODAL
+========================= */
+
+function openImage(src){
+
+    const modal =
+        document.getElementById("imageModal");
+
+    const image =
+        document.getElementById("modalImage");
+
+    image.src = src;
+
+    modal.classList.add("show");
+
+}
+
+
+/* =========================
+   CLOSE IMAGE
+========================= */
+
+function closeImage(){
+
+    const modal =
+        document.getElementById("imageModal");
+
+    modal.classList.remove("show");
+
+}
+
+
+/* =========================
+   ESC TO CLOSE IMAGE
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeImage();
+
+        }
+
+    }
+);
 
 </script>
 
